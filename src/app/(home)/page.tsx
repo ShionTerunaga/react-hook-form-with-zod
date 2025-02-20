@@ -1,10 +1,10 @@
-import { Form } from "./components/form";
+import { FormProvider } from "./components/form-provider";
 
 export default function Home() {
     return (
         <div>
             <h1>form verify</h1>
-            <Form />
+            <FormProvider />
         </div>
     );
 }
