@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { ZodType } from "zod";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useCustomForm<T extends FieldValues>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     useFormContext: () => ZodType<T, any, any>
