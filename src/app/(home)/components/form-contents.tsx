@@ -1,18 +1,16 @@
-import { SubmitHandler } from "react-hook-form";
-import { formContext, Input } from "./form-provider";
-import { useCustomForm } from "@/hooks/form";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 import { FormName } from "./form-name";
 import { FormEmail } from "./form-email";
+import { FormComponent } from "@/lib/form";
+import { SubmitButton } from "./submit-button";
 
 export function FormContents() {
-    const { handleSubmit, isDisabled } = useCustomForm(formContext[1]);
-
-    const submit: SubmitHandler<Input> = (formData: Input) => {
-        console.log(formData);
+    const submit: SubmitHandler<FieldValues> = (formData: FieldValues) => {
+        alert(JSON.stringify(formData));
     };
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <FormComponent submitProcessing={submit}>
             <div style={{ marginBottom: 10 }}>
                 <FormName />
             </div>
@@ -21,9 +19,7 @@ export function FormContents() {
                 <FormEmail />
             </div>
 
-            <button type="submit" disabled={isDisabled}>
-                submit
-            </button>
-        </form>
+            <SubmitButton />
+        </FormComponent>
     );
 }

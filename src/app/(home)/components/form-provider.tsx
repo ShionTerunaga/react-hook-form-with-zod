@@ -1,15 +1,14 @@
 "use client";
 
-import { createFormContext } from "@/store/form-context";
 import { z } from "zod";
+import { FormProvider } from "@/lib/form";
 import { FormContents } from "./form-contents";
-
 export interface Input {
     name: string;
     email: string;
 }
 
-const scheme = z.object({
+const schema = z.object({
     name: z.string().nonempty({ message: "Write name" }),
     email: z
         .string()
@@ -17,14 +16,10 @@ const scheme = z.object({
         .email({ message: "The format is different." }),
 });
 
-export const formContext = createFormContext<Input>();
-
-export function FormProvider() {
-    const [Provider] = formContext;
-
+export function FormProcessing() {
     return (
-        <Provider zodScheme={scheme}>
+        <FormProvider zodSchema={schema} mode="onChange">
             <FormContents />
-        </Provider>
+        </FormProvider>
     );
 }

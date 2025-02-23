@@ -1,8 +1,11 @@
-import { useCustomForm } from "@/hooks/form";
-import { formContext } from "./form-provider";
+import { Input } from "./form-provider";
+import { useCustomForm } from "@/lib/form";
 
 export function FormEmail() {
-    const { register, errors } = useCustomForm(formContext[1]);
+    const {
+        register,
+        formState: { errors },
+    } = useCustomForm<Input>();
 
     return (
         <>
