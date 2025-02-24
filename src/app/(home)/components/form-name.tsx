@@ -1,16 +1,13 @@
 import { Input } from "./form-provider";
-import { useCustomForm } from "@/lib/form";
+import { FormError, FormText } from "@/lib/form";
 
 export function FormName() {
-    const { register, formState } = useCustomForm<Input>();
     return (
         <>
             <label htmlFor="name">name</label>
-            <input type="text" {...register("name")} name="name" />
+            <FormText method="name" />
             <br />
-            {formState.errors.name && (
-                <span>{formState.errors.name.message}</span>
-            )}
+            <FormError<Input> method="name" />
         </>
     );
 }
