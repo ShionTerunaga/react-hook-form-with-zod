@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { FormProvider } from "@/lib/form";
-import { FormContents } from "./form-contents";
+import { FormContents } from "../components/form-contents";
 export interface Input {
     name: string;
     email: string;
@@ -16,7 +16,7 @@ const schema = z.object({
         .email({ message: "The format is different." }),
 });
 
-export function FormProcessing() {
+export function FormProcessingFirst() {
     return (
         <FormProvider zodSchema={schema} mode="onChange">
             <FormContents />

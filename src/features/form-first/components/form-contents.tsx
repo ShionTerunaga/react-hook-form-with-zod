@@ -1,9 +1,7 @@
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { FormName } from "./form-name";
 import { FormEmail } from "./form-email";
-import { FormComponent } from "@/lib/form";
-
-import { HasDisableSubmitButton } from "@/lib/form/components/submit-button/has-disabled";
+import { FormComponent, HasDisableSubmitButton } from "@/lib/form";
 
 export function FormContents() {
     const submit: SubmitHandler<FieldValues> = (formData: FieldValues) => {
@@ -20,7 +18,7 @@ export function FormContents() {
                 <FormEmail />
             </div>
 
-            <HasDisableSubmitButton>submit</HasDisableSubmitButton>
+            <HasDisableSubmitButton>submit1</HasDisableSubmitButton>
         </FormComponent>
     );
 }

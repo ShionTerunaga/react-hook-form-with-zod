@@ -1,4 +1,4 @@
-import { Input } from "./form-provider";
+import { Input } from "../layout/form-provider-first";
 import { FormError, FormText } from "@/lib/form";
 
 export function FormEmail() {
